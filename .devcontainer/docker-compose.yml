@@ -1,0 +1,16 @@
+version: '3.9'
+
+services:
+  # Make sure to have followed the instructions in
+  # INSTALL.md and arrive at an image with the tag `wisp`
+  app:
+    image: wisp
+    runtime: nvidia
+    environment:
+      DISPLAY: ${DISPLAY}
+    volumes:
+      - ..:/workspace
+      - /home/kyriazis/projects/nerf_data:/data:ro
+    network_mode: host
+    ipc: host
+    command: sleep infinity
